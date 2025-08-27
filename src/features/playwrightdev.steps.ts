@@ -4,6 +4,19 @@ import { expect } from '@playwright/test';
 import { apiRequest } from '../api/apiClient';
 import { queryDB } from '../db/dbUtils';
 
+// Step to query the DB for user with a given id
+Then('I query the DB for user with id {int}', async function (userId) {
+  this.dbResult = await queryDB('SELECT name FROM users WHERE id = $1', [userId]);
+});
+
+// Step to check the DB result for a specific name
+Then('the DB result should have name {string}', function (expectedName) {
+  if (!this.dbResult || this.dbResult.length === 0) {
+    throw new Error('No DB result found');
+  }
+  expect(this.dbResult[0].name).toBe(expectedName);
+});
+
 
 
 Given('I send a GET request to {string}', async function (url) {
