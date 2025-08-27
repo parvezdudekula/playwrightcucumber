@@ -16,7 +16,7 @@ export default defineConfig({
     actionTimeout: 0,
     ignoreHTTPSErrors: true,
     video: 'retain-on-failure',
-    launchOptions: { slowMo: 500 },
+    launchOptions: { slowMo: 700 },
   },
   projects: [
     {
@@ -32,5 +32,5 @@ export default defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
   ],
-  //debug: true,
+  // debug: true,
 });

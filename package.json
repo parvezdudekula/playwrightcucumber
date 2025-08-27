@@ -4,20 +4,30 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "cucumber": "cucumber-js -p default --require cucumber.js --require step-definitions/**/*.ts tests/features/*.feature",
-  "test": "npm run cucumber -- --tags",
-  "test:tag": "npx cucumber-js --require-module ts-node/register --require tests/step-definitions/*.ts tests/features/*.feature --tags '@your-tag'"
-},
-
+    "cucumber": "cucumber-js -p default --require cucumber.js --require step-definitions/**/*.ts tests/features/*.feature",
+    "test": "npm run cucumber -- --tags",
+    "test:tag": "npx cucumber-js --require-module ts-node/register --require tests/step-definitions/*.ts tests/features/*.feature --tags '@your-tag'"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@cucumber/cucumber": "^12.2.0",
     "@playwright/test": "^1.55.0",
+    "axios": "^1.11.0",
     "cucumber": "^6.0.7",
+    "pg": "^8.16.3",
     "playwright": "^1.55.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "@cucumber/cucumber": "^10.0.0",
+  "@cucumber/html-formatter": "^10.0.0"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@cucumber/html-formatter": "^21.14.0",
+    "@types/pg": "^8.15.5",
+    "allure-js-commons": "^3.3.3",
+    "axios": "^1.6.0",
+    "pg": "^8.11.1"
   }
 }

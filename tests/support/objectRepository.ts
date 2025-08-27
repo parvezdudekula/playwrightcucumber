@@ -1,4 +1,8 @@
-export const objectRepository = {
+type Locator = { selector: string; description: string };
+type PageLocators = { [element: string]: Locator };
+type ObjectRepository = { [page: string]: PageLocators };
+
+export const objectRepository: ObjectRepository = {
   homepage: {
     title: {
       selector: 'title',
