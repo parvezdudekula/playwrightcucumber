@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cucumber": "cucumber-js -p default --require cucumber.js --require step-definitions/**/*.ts tests/features/*.feature",
-    "test": "npm run cucumber -- --tags",
-    "test:tag": "npx cucumber-js --require-module ts-node/register --require tests/step-definitions/*.ts tests/features/*.feature --tags '@your-tag'"
+    "test": "npx cucumber-js --require-module ts-node/register --require src/features/**/*.ts --require src/support/**/*.ts --require tests/support/**/*.ts --format allure-cucumberjs/reporter --format progress tests/features/sample.feature",
+    "allure:generate": "npx allure generate allure-results --clean -o allure-report",
+    "allure:open": "npx allure open allure-report"
   },
   "keywords": [],
   "author": "",
@@ -14,20 +14,16 @@
   "type": "commonjs",
   "dependencies": {
     "@playwright/test": "^1.55.0",
-    "axios": "^1.11.0",
-    "cucumber": "^6.0.7",
-    "pg": "^8.16.3",
-    "playwright": "^1.55.0",
-    "ts-node": "^10.9.2",
-    "@cucumber/cucumber": "^10.0.0",
-  "@cucumber/html-formatter": "^10.0.0"
+    "playwright": "^1.55.0"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^12.2.0",
-    "@cucumber/html-formatter": "^21.14.0",
-    "@types/pg": "^8.15.5",
-    "allure-js-commons": "^3.3.3",
-    "axios": "^1.6.0",
-    "pg": "^8.11.1"
+  "@cucumber/cucumber": "^12.2.0",
+  "allure-cucumberjs": "^3.3.3",
+  "allure-js-commons": "^3.3.3",
+  "@types/pg": "^8.15.5",
+  "axios": "^1.11.0",
+  "pg": "^8.16.3",
+  "ts-node": "^10.9.2",
+  "typescript": "^5.9.2"
   }
 }

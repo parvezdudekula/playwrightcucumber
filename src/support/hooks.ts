@@ -1,2 +1,13 @@
-import { AfterStep, Status } from '@cucumber/cucumber';
-// Allure reporting removed. Add any custom hooks here if needed.
+
+
+import { Before, After, BeforeStep, AfterStep } from '@cucumber/cucumber';
+
+
+
+
+
+// Remove BeforeStep/AfterStep hooks as they are not needed and cause errors
+
+
+
+
