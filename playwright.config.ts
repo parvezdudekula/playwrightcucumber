@@ -16,7 +16,7 @@ export default defineConfig({
     actionTimeout: 0,
     ignoreHTTPSErrors: true,
     video: 'retain-on-failure',
-    launchOptions: { slowMo: 300 },
+    launchOptions: { slowMo: 500 },
   },
   projects: [
     {

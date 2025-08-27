@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "cucumber": "cucumber-js -p default --require cucumber.js --require step-definitions/**/*.ts tests/features/*.feature",
+  "test": "npm run cucumber -- --tags",
+  "test:tag": "npx cucumber-js --require-module ts-node/register --require tests/step-definitions/*.ts tests/features/*.feature --tags '@your-tag'"
+},
+
   "keywords": [],
   "author": "",
   "license": "ISC",
