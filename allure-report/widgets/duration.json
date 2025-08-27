@@ -1,1 +1,1 @@
-[{"uid":"be6599c84470c3e7","name":"Validate Playwright.dev homepage with API, DB, and UI","time":{"start":1756321759331,"stop":1756321765731,"duration":6400},"status":"passed","severity":"normal"}]
+[{"uid":"d0831932614e335b","name":"Validate Playwright.dev homepage with API, DB, and UI","time":{"start":1756323676080,"stop":1756323677939,"duration":1859},"status":"broken","severity":"normal"},{"uid":"6664a9e3149c9a97","name":"Verify the title of a webpage","time":{"start":1756323674532,"stop":1756323676079,"duration":1547},"status":"passed","severity":"normal"}]
