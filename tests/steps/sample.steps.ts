@@ -1,5 +1,3 @@
-
-import '../support/world.ts';
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 import { step } from 'allure-js-commons';
