@@ -1,5 +1,6 @@
+
 import { Page } from '@playwright/test';
-import { loginLocators } from '../objectRepository/login/locators';
+import { AutoHealer } from '../autoHealer';
 
 export class LoginPage {
   constructor(private page: Page) {}
@@ -9,8 +10,14 @@ export class LoginPage {
   }
 
   async login(username: string, password: string) {
-    await this.page.fill(loginLocators.usernameField, username);
-    await this.page.fill(loginLocators.passwordField, password);
-    await this.page.click(loginLocators.loginButton);
+    const usernameSelector = await AutoHealer.findAndHeal(this.page, 'usernameInput');
+    const passwordSelector = await AutoHealer.findAndHeal(this.page, 'passwordInput');
+    const loginBtnSelector = await AutoHealer.findAndHeal(this.page, 'loginButton');
+    if (!usernameSelector || !passwordSelector || !loginBtnSelector) {
+      throw new Error('One or more login selectors could not be found or healed');
+    }
+    await this.page.fill(usernameSelector, username);
+    await this.page.fill(passwordSelector, password);
+    await this.page.click(loginBtnSelector);
   }
 }

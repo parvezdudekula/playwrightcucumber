@@ -1,0 +1,13 @@
+{
+  "First Name": "#firstName",
+  "Last Name": "#lastName",
+  "Email": "#userEmail",
+  "Submit": "#submit",
+  "SuccessMessage": ".modal-content .text-success",
+  "FileInput": "#uploadFile",
+  "uploadInput": "#uploadFile",
+  "DownloadButton": "#downloadButton",
+  "TableRow": ".rt-tr-group",
+  "First NameFilter": "#searchBox",
+  "home": "body"
+}

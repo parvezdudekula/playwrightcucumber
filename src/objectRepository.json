@@ -1,0 +1,5 @@
+{
+  "loginButton": { "selector": "button[type='submit']", "type": "css" },
+  "usernameInput": { "selector": "#username", "type": "css" },
+  "passwordInput": { "selector": "#password", "type": "css" }
+}
