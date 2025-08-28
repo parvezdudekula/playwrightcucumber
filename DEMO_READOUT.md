@@ -16,6 +16,21 @@
 - **Data-Driven Steps**: Cucumber scenario outlines, JSON data
 - **Allure Reporting**: Step-level detail, AI healing logs, CI/CD-friendly
 - **Plug-and-Play**: Onboard new apps with config only—no code changes
+- **Robust Error Handling**: Custom World and hooks for browser/page lifecycle, screenshots on failure
+- **Scripted Allure Reporting**: `generate:allure`, `allure:generate`, and `allure:open` npm scripts for easy report generation and viewing
+
+### How AI/ML is Used
+- **Selector Auto-Healing**: When a selector is not found, the framework uses OpenAI's API to analyze the DOM and suggest a new selector based on the element's context and historical data.
+- **Self-Learning**: Successful AI-suggested selectors are stored for future use, making the framework more resilient over time.
+- **Allure Integration**: Every AI healing attempt and outcome is logged as an Allure step, providing full traceability and insight into how the framework adapts to UI changes.
+
+### How Reporting Works
+- **Allure Reports**: Every test run generates a detailed Allure report with:
+  - Step-by-step execution
+  - Attachments (screenshots, logs)
+  - AI healing attempts and results
+  - Easy navigation for failed steps and root cause analysis
+- **Automation**: Use `npm run generate:allure` to generate and open the report, or `npm run allure:generate`/`npm run allure:open` for granular control.
 
 ### How It Works
 1. Add selector/URL config JSON for your app
@@ -28,6 +43,7 @@
 - Minimal maintenance, maximum reusability
 - AI-powered resilience to UI changes
 - Clear, actionable reporting for teams and stakeholders
+- CI/CD ready with robust reporting and error handling
 
 ---
 
@@ -39,7 +55,7 @@
 
 ### 2. Run a Test for the Demo App
 ```bash
-APP=demoqa npx cucumber-js --require-module ts-node/register
+APP=demoqa npx cucumber-js --require-module ts-node/register --require tests/support/world.ts --require tests/steps/generic.steps.ts --tags @demoqa tests/features/demoqa-all-features.feature
 ```
 - _"Running tests for the DemoQA app using only config—no code changes."_
 
@@ -47,22 +63,22 @@ APP=demoqa npx cucumber-js --require-module ts-node/register
 - Edit a selector in `selectorMap.demoqa.json` to an invalid value
 - Re-run the test:
 ```bash
-APP=demoqa npx cucumber-js --require-module ts-node/register
+APP=demoqa npx cucumber-js --require-module ts-node/register --require tests/support/world.ts --require tests/steps/generic.steps.ts --tags @demoqa tests/features/demoqa-all-features.feature
 ```
 - _"Selector is broken. Watch as the AI auto-healer attempts to recover and logs the attempt."_
 
 ### 4. Show Allure Report
 ```bash
 npm run generate:allure
-# Then open allure-report/index.html in browser
+# Or use:
+npm run allure:generate
+npm run allure:open
 ```
-- _"Allure report shows step-level detail and AI healing logs."_
+- _"Allure report shows step-level detail, screenshots, and AI healing logs."_
 
-### 5. Onboard a New App (Optional)
-- Copy `selectorMap.demoqa.json` and `appConfig.demoqa.json` to new files for another app
-- Update selectors/URLs as needed
-- Run tests with `APP=newapp`—no code changes
+### 5. CI/CD Integration
+- Allure results and reports are generated in `allure-results` and `allure-report` folders for easy archiving and publishing in pipelines.
 
 ---
 
-> **Ready for any web application. Minimal config, maximum power.**
+For more details, see the codebase and configs. This framework is ready for rapid, resilient, and intelligent test automation at scale.
